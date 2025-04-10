@@ -1,0 +1,7 @@
+{
+  "name": "UrubuJogos",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
