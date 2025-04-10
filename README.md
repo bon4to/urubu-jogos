@@ -1,6 +1,6 @@
 # Urubu Jogos
 
-A modern gaming platform project.
+A college project built with Ionic framework that ironically simulates a "get rich quick" platform. The main goal is to learn and practice mobile-first development using modern web technologies.
 
 ## Getting Started
 
@@ -10,31 +10,36 @@ These instructions will help you set up and run the project on your local machin
 
 - Node.js (v18 or higher recommended)
 - npm or yarn
+- Ionic CLI
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/bon4to/urubu-jogos.git
 ```
 
 2. Install dependencies:
 ```bash
+npm install -g @ionic/cli
 npm install
 # or
+yarn global add @ionic/cli
 yarn install
 ```
 
 3. Start the development server:
 ```bash
-npm run dev
+ionic serve
 # or
-yarn dev
+npm run start
 ```
 
-## Contributing
+## Built With
 
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+* [Ionic Framework](https://ionicframework.com/) - The web/mobile framework used
+* [Angular](https://angular.io/) - The web framework used
+* [TypeScript](https://www.typescriptlang.org/) - Programming language
 
 ## License
 
