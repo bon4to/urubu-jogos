@@ -1,0 +1,106 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <div class="home-container">
+    <!-- Seção de boas-vindas -->
+    <div class="welcome-section">
+      <img class="welcome-logo" src="assets/images/logo-only.png" alt="Logo Urubu Jogos">
+      <h1 class="welcome-title">Bem-vindo, {{ userName }}!</h1>
+      <p class="welcome-subtitle">Aqui você ganha para se divertir!</p>
+    </div>
+    
+    <!-- Seção de jogos -->
+    <div class="games-section">
+      <h2 class="section-title">Jogos Disponíveis</h2>
+      <div class="games-grid">
+        <div class="game-card" (click)="abrirJogo('bocha')">
+          <div class="game-icon">
+            <ion-icon name="basketball-outline"></ion-icon>
+          </div>
+          <div class="game-content">
+            <h3>Bocha</h3>
+            <p>Jogo tradicional de precisão</p>
+          </div>
+        </div>
+        
+        <div class="game-card" (click)="abrirJogo('canastra')">
+          <div class="game-icon">
+            <ion-icon name="apps-outline"></ion-icon>
+          </div>
+          <div class="game-content">
+            <h3>Canastra</h3>
+            <p>Jogo de cartas clássico</p>
+          </div>
+        </div>
+        
+        <div class="game-card" (click)="abrirJogo('sabonete')">
+          <div class="game-icon">
+            <ion-icon name="cube-outline"></ion-icon>
+          </div>
+          <div class="game-content">
+            <h3>Sabonete</h3>
+            <p>Divertido e estratégico</p>
+          </div>
+        </div>
+        
+        <div class="game-card" (click)="abrirJogo('bisca')">
+          <div class="game-icon">
+            <ion-icon name="card-outline"></ion-icon>
+          </div>
+          <div class="game-content">
+            <h3>Bisca</h3>
+            <p>Dispute com seus amigos</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Seção de destaques -->
+    <div class="highlights-section">
+      <h2 class="section-title">Destaques</h2>
+      <div class="highlights-list">
+        <div class="highlight-card">
+          <div class="highlight-icon">
+            <ion-icon name="star-outline"></ion-icon>
+          </div>
+          <div class="highlight-content">
+            <h3>Jogos em Destaque</h3>
+            <p>Confira os jogos mais populares da semana</p>
+          </div>
+        </div>
+        
+        <div class="highlight-card">
+          <div class="highlight-icon">
+            <ion-icon name="trending-up-outline"></ion-icon>
+          </div>
+          <div class="highlight-content">
+            <h3>Ofertas Especiais</h3>
+            <p>Aproveite nossas promoções exclusivas</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Seção de ações rápidas -->
+    <div class="quick-actions">
+      <h2 class="section-title">Ações Rápidas</h2>
+      <div class="action-buttons">
+        <ion-button expand="block" class="action-button" routerLink="/credit-cards">
+          <ion-icon name="card-outline" slot="start"></ion-icon>
+          Gerenciar Cartões
+        </ion-button>
+        
+        <ion-button expand="block" class="action-button" color="secondary">
+          <ion-icon name="trophy-outline" slot="start"></ion-icon>
+          Ver Resultados
+        </ion-button>
+        
+        <ion-button expand="block" class="action-button" color="tertiary">
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          Meu Perfil
+        </ion-button>
+      </div>
+    </div>
+
+  </div>
+</ion-content>

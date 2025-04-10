@@ -1,0 +1,118 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Registrar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="register-container">
+    <!-- Logo -->
+    <div class="logo-box">
+      <img src="../../assets/images/logo.png" alt="Logo Urubu Jogos">
+    </div>
+    
+    <!-- Formulário de registro -->
+    <div class="register-form">
+      <h2 class="form-title">Criar uma conta</h2>
+      <p class="form-subtitle">Preencha os dados para se registrar</p>
+      
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <ion-item class="form-item">
+          <ion-label position="floating">Nome</ion-label>
+          <ion-input type="text" formControlName="nome" required></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="nome?.touched && nome?.errors?.['required']">
+          Nome é obrigatório
+        </div>
+        <div class="error-message" *ngIf="nome?.touched && nome?.errors?.['minlength']">
+          Nome deve ter pelo menos 3 caracteres
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Celular (DDD)</ion-label>
+          <ion-input type="tel" formControlName="celular" required></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="celular?.touched && celular?.errors?.['required']">
+          Celular é obrigatório
+        </div>
+        <div class="error-message" *ngIf="celular?.touched && celular?.errors?.['pattern']">
+          Celular deve ter o formato: DDD + 9 dígitos
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">CPF</ion-label>
+          <ion-input type="text" formControlName="cpf" required></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="cpf?.touched && cpf?.errors?.['required']">
+          CPF é obrigatório
+        </div>
+        <div class="error-message" *ngIf="cpf?.touched && cpf?.errors?.['pattern']">
+          CPF deve conter 11 dígitos
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email" required></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="email?.touched && email?.errors?.['required']">
+          Email é obrigatório
+        </div>
+        <div class="error-message" *ngIf="email?.touched && email?.errors?.['email']">
+          Email inválido
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Data de Nascimento</ion-label>
+          <ion-input type="date" formControlName="dtNascimento" required placeholder=""></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="dtNascimento?.touched && dtNascimento?.errors?.['required']">
+          Data de nascimento é obrigatória
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">País</ion-label>
+          <ion-select formControlName="pais" required>
+            <ion-select-option *ngFor="let country of countries" [value]="country.code">
+              {{country.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="error-message" *ngIf="pais?.touched && pais?.errors?.['required']">
+          País é obrigatório
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Senha</ion-label>
+          <ion-input type="password" formControlName="senha" required></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="senha?.touched && senha?.errors?.['required']">
+          Senha é obrigatória
+        </div>
+        <div class="error-message" *ngIf="senha?.touched && senha?.errors?.['minlength']">
+          Senha deve ter pelo menos 6 caracteres
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Confirmar Senha</ion-label>
+          <ion-input type="password" formControlName="confirmarSenha" required></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="confirmarSenha?.touched && confirmarSenha?.errors?.['required']">
+          Confirmação de senha é obrigatória
+        </div>
+        <div class="error-message" *ngIf="registerForm.touched && registerForm.errors?.['mismatch']">
+          As senhas não coincidem
+        </div>
+
+        <ion-button expand="block" type="submit" [disabled]="!registerForm.valid">
+          Registrar
+        </ion-button>
+
+        <div class="form-footer">
+          <p>
+            Já tem uma conta? <span (click)="goToLogin()" class="register-link">Fazer login</span>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>

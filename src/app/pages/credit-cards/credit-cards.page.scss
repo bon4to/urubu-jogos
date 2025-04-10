@@ -1,0 +1,353 @@
+ion-content {
+  --background: var(--ion-background-color);
+  ion-list {
+    margin-top: 16px;
+  }
+
+  .card-item {
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    margin: 8px 16px;
+    border-radius: 12px;
+    background: var(--ion-card-background);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+    color: var(--ion-text-color);
+    border-left: 4px solid var(--ion-border-color);
+
+    ion-icon {
+      font-size: 24px;
+      color: var(--ion-color-medium);
+    }
+
+    ion-label h2 {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+
+    ion-label p {
+      margin: 0;
+      color: var(--ion-color-medium);
+      font-size: 14px;
+    }
+  }
+
+  .discover {
+    border-left-color: #ff6600;
+  }
+
+  .default-card {
+    background-color: rgba(40, 180, 99, 0.15);
+    border-left-color: var(--ion-color-success);
+  }
+
+  ion-badge {
+    font-size: 12px;
+    height: 20px;
+    margin-left: auto;
+    align-self: center;
+    --color: white;
+    --background: var(--ion-color-success);
+  }
+
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    color: var(--ion-color-medium);
+    text-align: center;
+    padding: 16px;
+
+    ion-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+      color: var(--ion-color-medium);
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    p {
+      margin-top: 8px;
+      font-size: 16px;
+    }
+  }
+
+  ion-fab-button {
+    --background: var(--ion-color-primary);
+    --color: white;
+  }
+}
+
+ion-input, ion-select, ion-datetime {
+  --color: var(--ion-text-color);
+}
+
+.header-logo-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  scale: 0.5;
+}
+
+.cards-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.cards-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--ion-text-color);
+  margin-bottom: 16px;
+  padding-left: 8px;
+  border-left: 4px solid var(--ion-color-primary);
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.credit-card {
+  border-radius: 16px;
+  padding: 20px;
+  color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.VISA {
+  background: linear-gradient(135deg, #1a1f71, #0057a0);
+}
+
+.MASTERCARD {
+  background: linear-gradient(135deg, #f79e1b, #eb001b);
+}
+
+.AMEX {
+  background: linear-gradient(135deg, #006fcf, #2671b9);
+}
+
+.credit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 L0,100 Z" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="2"/></svg>');
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.card-chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(135deg, #b8860b, #daa520);
+  border-radius: 6px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-chip::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 20px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 50%, transparent 100%);
+  border-radius: 4px;
+}
+
+.card-type {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-number {
+  font-size: 22px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 2;
+}
+
+.card-holder {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-expiry {
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.add-card-button {
+  margin-top: 24px;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  height: 50px;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+@media (min-width: 768px) {
+  .cards-container {
+    max-width: 600px;
+  }
+  
+  .credit-card {
+    min-height: 200px;
+  }
+  
+  .card-number {
+    font-size: 24px;
+  }
+}
+
+.add-card-container {
+  margin-top: 20px;
+  background: var(--ion-card-background);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  
+  form {
+    .form-item {
+      --background: transparent;
+      --border-color: var(--ion-border-color);
+      --border-radius: 8px;
+      --border-width: 1px;
+      --border-style: solid;
+      margin-bottom: 16px;
+      --highlight-color: var(--ion-color-primary);
+      --highlight-color-focused: var(--ion-color-primary);
+      --color: var(--ion-text-color);
+      --padding-start: 0;
+      --inner-padding-end: 0;
+
+      ion-label {
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+      }
+    }
+
+    ion-input, ion-select {
+      --color: var(--ion-text-color);
+    }
+
+    .error-message {
+      color: var(--ion-color-danger);
+      font-size: 0.8em;
+      margin: -12px 0 16px 0;
+      padding-left: 16px;
+    }
+
+    .button-container {
+      margin-top: 24px;
+
+      ion-button {
+        margin-bottom: 12px;
+      }
+    }
+  }
+}
+
+.no-cards {
+  text-align: center;
+  padding: 32px;
+  color: var(--ion-color-medium);
+
+  ion-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+}
+
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  position: relative;
+  z-index: 10;
+  
+  .action-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    &:active {
+      transform: scale(0.95);
+    }
+    
+    ion-icon {
+      font-size: 22px;
+    }
+  }
+}

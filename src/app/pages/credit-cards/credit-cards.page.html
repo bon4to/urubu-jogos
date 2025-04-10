@@ -1,0 +1,115 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+  <div class="cards-container">
+    <!-- Seção de cartões -->
+    <div class="cards-section" *ngIf="!isAddingCard">
+      <h2 class="section-title">Cartões de Crédito</h2>
+      
+      <!-- Lista de cartões -->
+      <div class="cards-list">
+        <!-- Cartões dinâmicos -->
+        <div class="{{card.bandeira}} credit-card" *ngFor="let card of cards">
+          <div class="card-header">
+            <div class="card-chip"></div>
+            <div class="card-type">{{card.bandeira}}</div>
+          </div>
+          <div class="card-number">•••• •••• •••• {{card.numero.slice(-4)}}</div>
+          <div class="card-footer">
+            <div class="card-holder">{{card.nmTitular}}</div>
+            <div class="card-expiry">{{formatarDataExpiracao(card.dtExpiracao)}}</div>
+          </div>
+          <div class="card-actions">
+            <button class="action-button delete-button" (click)="removerCartao(card.idCartao || 0)">
+              <ion-icon name="trash"></ion-icon>
+            </button>
+            <button class="action-button star-button" (click)="definirPadrao(card.idCartao || 0)">
+              <ion-icon name="star"></ion-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- Mensagem quando não há cartões -->
+        <div class="no-cards" *ngIf="cards.length === 0">
+          <ion-icon name="card-outline" size="large"></ion-icon>
+          <p>Você ainda não tem cartões cadastrados</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Botão de adicionar cartão -->
+    <ion-button expand="block" class="add-card-button" (click)="adicionarCartao()" *ngIf="!isAddingCard">
+      <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+      Adicionar Novo Cartão
+    </ion-button>
+
+    <!-- Formulário de Adição de Cartão -->
+    <div class="add-card-container" *ngIf="isAddingCard">
+      <h2 class="section-title">Adicionar Novo Cartão</h2>
+      
+      <form [formGroup]="cardForm" (ngSubmit)="addCard()">
+        <ion-item class="form-item">
+          <ion-label position="floating">Número do Cartão</ion-label>
+          <ion-input type="text" formControlName="numero" maxlength="19" placeholder=""></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="cardForm.get('numero')?.touched && cardForm.get('numero')?.errors?.['required']">
+          Número do cartão é obrigatório
+        </div>
+        <div class="error-message" *ngIf="cardForm.get('numero')?.touched && cardForm.get('numero')?.errors?.['pattern']">
+          Número do cartão deve ter entre 13 e 19 dígitos
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Nome do Titular</ion-label>
+          <ion-input type="text" formControlName="nmTitular" placeholder=""></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="cardForm.get('nmTitular')?.touched && cardForm.get('nmTitular')?.errors?.['required']">
+          Nome do titular é obrigatório
+        </div>
+        <div class="error-message" *ngIf="cardForm.get('nmTitular')?.touched && cardForm.get('nmTitular')?.errors?.['minlength']">
+          Nome do titular deve ter pelo menos 3 caracteres
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Data de Expiração</ion-label>
+          <ion-input type="date" formControlName="dtExpiracao" placeholder=""></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="cardForm.get('dtExpiracao')?.touched && cardForm.get('dtExpiracao')?.errors?.['required']">
+          Data de expiração é obrigatória
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">CVV</ion-label>
+          <ion-input type="text" formControlName="cvv" maxlength="4" placeholder=""></ion-input>
+        </ion-item>
+        <div class="error-message" *ngIf="cardForm.get('cvv')?.touched && cardForm.get('cvv')?.errors?.['required']">
+          CVV é obrigatório
+        </div>
+        <div class="error-message" *ngIf="cardForm.get('cvv')?.touched && cardForm.get('cvv')?.errors?.['pattern']">
+          CVV deve ter entre 3 e 4 dígitos
+        </div>
+
+        <ion-item class="form-item">
+          <ion-label position="floating">Bandeira</ion-label>
+          <ion-select formControlName="bandeira" placeholder="">
+            <ion-select-option value="VISA">Visa</ion-select-option>
+            <ion-select-option value="MASTERCARD">Mastercard</ion-select-option>
+            <ion-select-option value="AMEX">American Express</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <div class="error-message" *ngIf="cardForm.get('bandeira')?.touched && cardForm.get('bandeira')?.errors?.['required']">
+          Bandeira é obrigatória
+        </div>
+
+        <div class="form-actions">
+          <ion-button expand="block" type="submit" [disabled]="!cardForm.valid">
+            Salvar Cartão
+          </ion-button>
+          <ion-button expand="block" fill="clear" (click)="cancelarAdicao()">
+            Cancelar
+          </ion-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</ion-content>
